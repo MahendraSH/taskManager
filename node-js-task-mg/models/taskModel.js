@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { create } = require('./userModel');
 
 const taskSchema = mongoose.Schema({
     title: {
