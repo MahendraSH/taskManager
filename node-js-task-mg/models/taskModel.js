@@ -4,8 +4,10 @@ const { create } = require('./userModel');
 const taskSchema = mongoose.Schema({
     title: {
         type: String,
+
         required: [true, 'title is required'],
         trim: true,
+        unique: [true, "title must be unique "],
         minLength: [4, "title must be at least 4 characters"],
     },
     discription: {
