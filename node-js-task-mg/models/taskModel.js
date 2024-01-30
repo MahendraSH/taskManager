@@ -18,21 +18,19 @@ const taskSchema = mongoose.Schema({
         required: [true, "status is required "],
 
     },
-    // category: {
-    //     type: String,
-    //     required: [true, 'category is required'],
-    // }
-    // ,
 
-    // user: {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'User',
-    //     required: true,
-    // },
-
+    taskCompletionDay: {
+        type: Date,
+        required: true
+    },
+    category: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true,
+    }, 
     createAt: {
         type: Date,
-        default: Date.now,
+        default: Date.now(),
         required: true,
     },
     updatedAt: {
