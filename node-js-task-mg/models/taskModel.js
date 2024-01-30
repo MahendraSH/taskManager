@@ -23,11 +23,15 @@ const taskSchema = mongoose.Schema({
         type: Date,
         required: true
     },
-    category: {
+    categoryId: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: true,
-    }, 
+    },
+    category: {
+        type: String,
+        required: true,
+    },
     createAt: {
         type: Date,
         default: Date.now(),
