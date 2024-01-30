@@ -51,7 +51,7 @@ const createTask = CatchAsycErrors(async (req, res, next) => {
     });
 });
 const getAllTask = CatchAsycErrors(async (req, res, next) => {
-    const resultPerPage = 4;
+    const resultPerPage = 10;
 
     const tototalTasks = await Task.countDocuments();
     const apiFeature = new ApiFeatures(Task.find(), req.query)
@@ -91,7 +91,7 @@ const updateTaskById = CatchAsycErrors(async (req, res, next) => {
     }
     const { title, status, discription, date, month, year, category } = req.body;
 
-    if (taskis.status === true && status) {
+    if (taskis.status && Boolean(status)) {
 
         return next(new ErrorHandler("task is Completed , it Can not be changed  ", 400));
     }
