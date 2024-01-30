@@ -64,11 +64,11 @@ const updateTaskById = CatchAsycErrors(async (req, res, next) => {
 })
 const deleteTaskById = CatchAsycErrors(async (req, res, next) => {
 
-    const taskis = await Task.findById(req.params.id);
-    if (!taskis) {
+    const task = await Task.findById(req.params.id);
+    if (!task) {
         return next(new ErrorHandler("task not found , please check the id ", 404));
     }
-    await Task.remove();
+     await Task.deleteOne(task);
     res.status(200).json({
         success: true,
         message: "task deleted successfully",

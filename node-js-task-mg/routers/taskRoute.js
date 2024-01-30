@@ -6,7 +6,7 @@ router.route('/create').post(createTask);
 router.route('/all').get(getAllTask);
 router.route('/:id')
     .patch(updateTaskById)
-    .get(getAllTask)
+    .get(getTaskById)
     .delete(deleteTaskById);
 
 module.exports = router;
